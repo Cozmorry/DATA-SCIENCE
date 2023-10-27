@@ -1,0 +1,15 @@
+road_condition,weather_condition,other_factors,accident_severity
+Dry,Clear,None,3
+Wet,Rainy,Speeding,2
+Icy,Foggy,Distracted Driving,4
+Snowy,Snowing,Poor Visibility,5
+Dry,Clear,None,2
+Dry,Clear,None,4
+Wet,Rainy,Speeding,4
+Icy,Foggy,Distracted Driving,4
+Snowy,Snowing,Poor Visibility,4
+Dry,Clear,None,4
+Dry,Clear,None,4
+Wet,Rainy,Speeding,4
+Icy,Foggy,Distracted Driving,4
+Snowy,Snowing,Poor Visibility,4
