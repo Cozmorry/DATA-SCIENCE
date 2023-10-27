@@ -1,0 +1,2 @@
+cozy=pd.read_csv('/content/MyDataSet.csv')
+cozy.head(5)
