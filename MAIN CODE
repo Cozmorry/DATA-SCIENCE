@@ -1,0 +1,40 @@
+{DEFINING DEPENDENT AND INDEPENDENT VARIABLES}
+
+X = data[['road_condition', 'weather_condition', 'other_factors']]
+y = data['accident_severity']
+
+{SPLITTING THE DATA INTO TRAIN AND TEST SETS}
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+{CREATING A REGRESSION MODEL}
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+{EVALUATING THE MODEL}
+predictions = model.predict(X_test)
+mse = mean_squared_error(y_test, predictions)
+print('Mean Squared Error:', mse)
+
+{SAVING THE MODEL FOR FUTURE USE}
+joblib.dump(model, 'accident_severity_model.pkl')
+
+{Training the model}
+import pandas as pd
+import joblib
+
+cozy = pd.read_csv('/content/MyDataSet.csv')
+
+cozy = pd.get_dummies(cozy, columns=['road_condition', 'weather_condition', 'other_factors'], drop_first=True)
+
+loaded_model = joblib.load('accident_severity_model.pkl')
+
+
+X_train = cozy[['road_condition_2', 'weather_condition_2', 'other_factors_2']]
+
+predicted_severity = loaded_model.predict(X_train)
+
+cozy['predicted_severity'] = predicted_severity
+
+print(cozy)
+
+cozy.to_csv('cozy_dataset_with_predictions.csv', index=False)
